@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<title>Для Юли ❤️</title>
+
+<style>
+
+body{
+margin:0;
+padding:0;
+font-family: 'Segoe UI', sans-serif;
+background: linear-gradient(135deg,#ffdee9,#b5fffc);
+overflow:hidden;
+text-align:center;
+}
+
+/* заголовок */
+
+h1{
+margin-top:40px;
+font-size:50px;
+background: linear-gradient(90deg,#ff4d6d,#ff9a9e,#fad0c4,#ff4d6d);
+background-size:300%;
+-webkit-background-clip:text;
+-webkit-text-fill-color:transparent;
+animation: shimmer 4s infinite;
+}
+
+@keyframes shimmer{
+0%{background-position:0%}
+100%{background-position:300%}
+}
+
+/* кнопки */
+
+.buttons{
+margin-top:40px;
+}
+
+button{
+padding:15px 25px;
+margin:10px;
+font-size:18px;
+border:none;
+border-radius:30px;
+cursor:pointer;
+background:white;
+box-shadow:0 5px 15px rgba(0,0,0,0.2);
+transition:0.3s;
+}
+
+button:hover{
+transform:scale(1.1);
+}
+
+#no{
+position:relative;
+}
+
+/* текст */
+
+#message{
+width:60%;
+margin:auto;
+margin-top:40px;
+font-size:20px;
+line-height:1.6;
+opacity:0;
+transition:1s;
+}
+
+/* сердечки */
+
+.heart{
+position:absolute;
+color:red;
+font-size:20px;
+animation: fall linear forwards;
+}
+
+@keyframes fall{
+0%{
+transform:translateY(-10vh);
+opacity:1;
+}
+100%{
+transform:translateY(110vh);
+opacity:0;
+}
+}
+
+</style>
+</head>
+
+<body>
+
+<h1>С 8 Марта, моя девочка! 🌸</h1>
+
+<div class="buttons">
+
+<button onclick="loveYes()">ДА ❤️</button>
+
+<button id="no">НЕТ 😅</button>
+
+<button onclick="whyLove()">Почему я тебя люблю ❤️</button>
+
+<button onclick="march8()">С 8 марта 🌸</button>
+
+<button onclick="surprise()">Сюрприз 🎁</button>
+
+</div>
+
+<div id="message"></div>
+
+<script>
+
+/* падающие сердечки */
+
+let heartRate = 300;
+
+function createHeart(){
+
+let heart=document.createElement("div");
+heart.className="heart";
+heart.innerHTML="❤️";
+
+heart.style.left=Math.random()*100+"vw";
+heart.style.fontSize=(15+Math.random()*20)+"px";
+heart.style.animationDuration=(3+Math.random()*5)+"s";
+
+document.body.appendChild(heart);
+
+setTimeout(()=>{
+heart.remove();
+},8000)
+
+}
+
+setInterval(createHeart,heartRate);
+
+/* усиление сердечек */
+
+function moreHearts(){
+heartRate=100;
+}
+
+/* текст */
+
+function showText(text){
+
+let msg=document.getElementById("message");
+msg.style.opacity=0;
+
+setTimeout(()=>{
+msg.innerHTML=text;
+msg.style.opacity=1;
+},300);
+
+}
+
+/* кнопки */
+
+function loveYes(){
+
+moreHearts();
+
+showText(`
+Кисуля, я хотел сказать тебе кое-что очень важное.
+
+С каждым днём рядом с тобой мир становится ярче.
+Ты приносишь в мою жизнь тепло, улыбки и невероятное чувство спокойствия.
+
+Когда я думаю о тебе — я улыбаюсь.
+Когда вижу тебя — мне становится по-настоящему хорошо.
+
+Ты для меня особенный человек.
+Я ценю твою доброту, твою искренность и то, как ты делаешь этот мир лучше просто тем, что ты есть.
+
+Спасибо тебе за твою улыбку,
+за твоё тепло,
+за то, что ты — именно такая.
+
+Мне очень повезло знать тебя.
+И я хочу, чтобы в твоей жизни было как можно больше счастья, радости и света ❤️
+`);
+
+}
+
+function whyLove(){
+
+showText(`
+Почему я тебя люблю?
+
+Потому что рядом с тобой легко.
+Потому что ты умеешь улыбаться так, что становится тепло на душе.
+
+Потому что ты добрая, искренняя и настоящая.
+
+Мне нравится твой смех,
+твоя энергия,
+твоя красота,
+и то, как ты смотришь на мир.
+
+Ты умеешь делать обычные моменты особенными.
+Ты вдохновляешь.
+Ты радуешь.
+
+И чем больше я узнаю тебя —
+тем больше понимаю,
+какая ты удивительная.
+
+И именно за это
+я тебя очень ценю ❤️
+`);
+
+}
+
+function march8(){
+
+showText(`
+Юличка, поздравляю тебя с 8 марта! 🌸
+
+Пусть в твоей жизни всегда будет много радости,
+улыбок,
+красивых моментов
+и приятных сюрпризов.
+
+Пусть каждый день приносит тебе тепло,
+вдохновение
+и чувство счастья.
+
+Оставайся такой же прекрасной,
+яркой,
+доброй
+и невероятной.
+
+Пусть рядом будут люди,
+которые ценят тебя,
+поддерживают
+и делают твою жизнь ещё лучше.
+
+С праздником тебя,
+Юля! 🌸
+`);
+
+}
+
+function surprise(){
+
+moreHearts();
+
+showText(`
+Это небольшой сюрприз для тебя ❤️
+
+Иногда самые простые вещи могут говорить о многом.
+
+Этот маленький сайт —
+лишь способ напомнить тебе,
+что ты особенный человек.
+
+Ты заслуживаешь улыбок,
+радости
+и самого тёплого отношения.
+
+Пусть этот день подарит тебе хорошее настроение,
+а впереди будет ещё много счастливых моментов.
+
+И помни —
+ты самый прекрасный человек на этой земле🌸
+`);
+
+}
+
+/* убегающая кнопка */
+
+let no=document.getElementById("no");
+
+no.addEventListener("mouseover",()=>{
+
+let x=Math.random()*window.innerWidth*0.8;
+let y=Math.random()*window.innerHeight*0.8;
+
+no.style.position="absolute";
+no.style.left=x+"px";
+no.style.top=y+"px";
+
+});
+
+</script>
+
+</body>
+</html>
